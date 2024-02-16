@@ -1,6 +1,4 @@
 var btns = document.querySelectorAll("button")
-var pause_1 = document.querySelector("#p1")
-var pause_2 = document.querySelector("#p2")
 let playing = false
 let playingInside = true
 var audio
@@ -38,20 +36,14 @@ obj = [
 		name: "nAma rAmAyaNaM_FullRecording_Bharathi Bhagini.mp3",
 	},
 ]
-var val
 let prevId = 0
 let Id = 0
 for (var btn = 0; btn < btns.length; btn++) {
 	btns[btn].addEventListener("click", (e) => {
 		Id = e.target.id
-		if (playing && !playingInside) {
-			playing = false
-			audio.pause()
-		} else {
-			playingInside = true
-		}
+
 		if (prevId === 0) {
-			prevId = e.target.id
+			prevId = Id
 		}
 		if (prevId !== Id) {
 			playing = false
@@ -61,9 +53,9 @@ for (var btn = 0; btn < btns.length; btn++) {
 			pb.classList.remove("fa-pause-circle")
 
 			pb.classList.add("fa-play-circle")
-			playFunction(e.target.id)
+			playFunction(Id)
 		} else {
-			playFunction(e.target.id)
+			playFunction(Id)
 		}
 	})
 }
@@ -74,27 +66,19 @@ function playFunction(id) {
 
 	if (item) {
 		var pb = document.querySelector("#p" + id)
-
-		// pb.classList.remove("fa-pause-circle")
-
-		// pb.classList.add("fa-play-circle")
 		pb.classList.add("fa-pause-circle")
 		pb.classList.remove("fa-play-circle")
 		if (!playing && playingInside) {
 			audio = new Audio("./nAmarAmAyaNaMFiles/" + item.name)
 			playing = true
-
 			prevId = id
 			audio.play()
 		} else {
 			playing = false
 			pausebuttom = "pause_" + id
 			var pb = document.querySelector("#p" + id)
-
 			pb.classList.remove("fa-pause-circle")
-
 			pb.classList.add("fa-play-circle")
-
 			audio.pause()
 		}
 		audio.addEventListener("ended", function () {
