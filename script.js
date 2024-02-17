@@ -1,6 +1,5 @@
-var btns = document.querySelectorAll("button")
+let btns = document.querySelectorAll("button")
 let playing = false
-let playingInside = true
 var audio
 obj = [
 	{
@@ -68,7 +67,7 @@ function playFunction(id) {
 		var pb = document.querySelector("#p" + id)
 		pb.classList.add("fa-pause-circle")
 		pb.classList.remove("fa-play-circle")
-		if (!playing && playingInside) {
+		if (!playing) {
 			audio = new Audio("./nAmarAmAyaNaMFiles/" + item.name)
 			playing = true
 			prevId = id
