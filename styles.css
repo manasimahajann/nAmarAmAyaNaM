@@ -8,6 +8,7 @@ body{
   justify-content: center;
   align-items: center;
   height: 100vh;
+  height: 100dvh;
   /* center verically */
   margin:0;
   /* no scroll bar on the body */
