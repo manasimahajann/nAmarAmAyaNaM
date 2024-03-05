@@ -42,8 +42,8 @@ obj.forEach((element) => {
 		element.id
 	}" style="font-size:24px">${element.name
 		.replace("mp3", "")
-		.replace("_", " ")
-		.replace(".", "")}<i class="fa fa-play-circle" id=${
+		.replace(".", "")
+		.replace("_", ". ")}<i class="fa fa-play-circle" id=${
 		"p" + element.id
 	} style="font-size:48px;color:red"></i></button> 
 	`
